@@ -17,7 +17,7 @@ In this project we used pre-trained VGG-Face to process face images and turn the
 The next part of data generation is to collect user preferences. We let the one and the same individual rate his preference for 5000 face pairs. The first 2000 questions compare an original(non-averaged) face versus another original face, the next 1500 questions compare an averaged versus original face, and the final 1500 compare an averaged face versus another averaged face. The resulting data is a 5000*3 matrix: the first and second columns store index of each face in the pair, and the third column a binary (0 for first face and 1 for second face). We split the 5000 data points 4:1 into training and testing set.
 
 <!-- ![faces](images/rate.png) -->
-<img src="images/rate.png" width="580" height="200" />
+<img src="images/rate.png" width="650" height="220" />
 
 
 ### Feature Extraction
