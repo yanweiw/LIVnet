@@ -37,3 +37,4 @@ We have trained the difference between two feature vectors with logistic regress
 ### More to come!
 
 For more information, you can find me at my [portfolio page](https://yanweiw.github.io/).
+Cover photo credit to [The Ethnic Origins of Beauty Project](http://www.lesoriginesdelabeaute.com/fr/accueil.html).
