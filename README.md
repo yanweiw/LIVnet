@@ -10,11 +10,11 @@ In this project we used pre-trained VGG-Face to process faces and turn them into
 
 ### Data Preparation
 
-109 model faces were collected from the French ["The Ethnic Origins of Beauty"](http://www.lesoriginesdelabeaute.com/fr/accueil.html) project. The photo shoots were multi-ethnic and standardized. To increase the data set we also used a facial average software to produce 76 news faces, each averaged 1:1 from 2 original faces. We then cropped out unnecessary regions, resized to 224 \times 224 * 3 and subtracted the mean of these 185 images. Unfortunately we can only find female faces from this French project.
+109 model faces were collected from the French ["The Ethnic Origins of Beauty"](http://www.lesoriginesdelabeaute.com/fr/accueil.html) project. The photo shoots were multi-ethnic and standardized. To increase the data set we also used a facial average software to produce 76 news faces, each averaged 1:1 from 2 original faces. We then cropped out unnecessary regions, resized to 224 \* 224 \* 3 and subtracted the mean of these 185 images. Unfortunately we can only find female faces from this French project.
 
 ![faces](images/average.png)
 
-The next part of data generation is to collect user preferences. We let the one and the same individual rate his preference for 5000 face pairs. The first 2000 questions compare an original(non-averaged) face versus another original face, the next 1500 questions compare an averaged versus original face, and the final 1500 compare an averaged face versus another averaged face. The resulting data is a 5000*3 matrix: the first and second columns store index of each face in the pair, and the third column a binary (0 for first face and 1 for second face). We split the 5000 data points 4:1 into training and testing set.
+The next part of data generation is to collect user preferences. We let the same individual rate his preference for 5000 face pairs. The first 2000 pairs compare an original(non-averaged) face versus another original face, the next 1500 pairs compare an averaged versus original face, and the final 1500 compare an averaged face versus another averaged face. The resulting data is a 5000 \* 3 matrix: the first and second columns store index of each face in the pair, and the third column a binary (0 in favor of first face and 1 in favor of second face). We split the 5000 data labels 4:1 into training and testing set.
 
 <!-- ![faces](images/rate.png) -->
 <img src="images/rate.png" width="650" height="220" />
@@ -28,7 +28,7 @@ We used pretrained VGG-Face model from [MatConvNet](http://www.vlfeat.org/matcon
 
 ### Classification
 
-This is the innovative aspect of this project: we use the first feature vector minus the second feature vector as a description of where the first image is relative to the second image in the feature space. We then train classifiers on this directional relative displacement. If the numerical value of a feature is proportional to the size of eyes and the individual who generated the data prefer large eyes, then a positive displacement in that feature dimension will contribute to some favoring over the first image in a pair.
+This is the innovative aspect of this project: we use the first feature vector minus the second feature vector as a description of where the first image is relative to the second image in the feature space. We then train classifiers on this directional relative displacement. If the numerical value of a feature is proportional to the size of eyes and the individual who generated the data prefers large eyes, then a positive displacement in that feature dimension will contribute to some favoring over the first image in a pair.
 
 ![feature](images/feature.png)
 
