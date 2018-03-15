@@ -16,13 +16,15 @@ In this project we used pre-trained VGG-Face to process face images and turn the
 
 The next part of data generation is to collect user preferences. We let the one and the same individual rate his preference for 5000 face pairs. The first 2000 questions compare an original(non-averaged) face versus another original face, the next 1500 questions compare an averaged versus original face, and the final 1500 compare an averaged face versus another averaged face. The resulting data is a 5000*3 matrix: the first and second columns store index of each face in the pair, and the third column a binary (0 for first face and 1 for second face). We split the 5000 data points 4:1 into training and testing set.
 
-![faces](images/rate.png)
+<!-- ![faces](images/rate.png) -->
+<img src="images/rate.png" width="580" height="200" />
+
 
 ### Feature Extraction
 
 We used pretrained VGG-Face model from [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/) to extract features from the 185 faces. The network has 37 layers and we experimented with the output 4096 dimensional vector of layer 32 and layer 34, which are the first two of the three fully connected layers. We didn't consider the last one because this network is pretrained on a different dataset and output from last layer is likely to be very tuned towards that dataset. Alternatively we could also fine tune the weights, which I am currently trying. Notice the fully connected layer is labeled as "conv" in the following network structure because "fc" is a special case of "conv".
 
-![vgg-face](images/vgg-face.png)
+![vgg-face](images/network_struct.png)
 
 ### Classification
 
