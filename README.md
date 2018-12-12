@@ -32,7 +32,7 @@ This is the innovative aspect of this project: we use the first feature vector m
 
 ![feature](images/feature.png)
 
-We have trained the difference between two feature vectors with logistic regression and SVM. So far SVM has given superior accuracy of 65%. We realize this result still needs improvement due to the fact we are not fine tuning the network yet. The next step is to borrow the weights of VGG-Face as initialization for a new Siamese network. The network will input two faces at the same time into two parallel branch which share the weights. We will then train fully connected layers on top of the outputs of the two branches to do classification. This should yield way better results and we are working on it.
+We have trained the difference between two feature vectors with logistic regression and [custom-written Support Vector Machine package](https://github.com/yanweiw/multiclassSVM). So far SVM has given superior accuracy of 65%. We realize this result still needs improvement due to the fact we are not fine tuning the network yet. The next step is to borrow the weights of VGG-Face as initialization for a new Siamese network. The network will input two faces at the same time into two parallel branch which share the weights. We will then train fully connected layers on top of the outputs of the two branches to do classification. This should yield way better results and we are working on it.
 
 ### More to come!
 
